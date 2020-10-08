@@ -1,13 +1,32 @@
 @charset "UTF-8";
 
-body{
-    background-color: #ffffff;
+body {
+    background-color: #dddddd;
     color: rgba(0, 0, 0, 1); /*rgba(vermelho, verde, azul, transparencia) onde a transparencia vaira de 
                                  0 (totalmente transparente) até 1 (totalmente visivel)*/
 }
-p{
+
+div#interface {
+    width: 900px;
+    background-color: white;
+    margin: -20px auto 0px auto;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    padding: 10px; /*forma resumida de escrever <padding: 10px 10px 10px 10px;> uma vez que todos os espaços são iguais*/
+}
+
+p {
    text-align: justify;
    text-indent: 50px;
+}
+
+header#cabecalho img#icone {
+    position: absolute;
+    left: 990px;
+    top: 40px;
+}
+
+header#cabecalho {
+    
 }
 
 /*----- Formatação de Imagens com Legendas -----*/
