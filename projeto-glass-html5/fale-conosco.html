@@ -4,6 +4,7 @@
     <meta charset="UTF-8"/>
     <title>Tudo sobre Google Glass</title>
     <link rel="stylesheet" type="text/css" href="_css/estilo.css"/>
+    <link rel="stylesheet" type="text/css" href="_css/form.css"/>
 </head>
 
 <script language="javascript" src="_javascript/funcoes.js"></script>
@@ -34,39 +35,114 @@
             </nav>
         </header>
 
-        Fale Conosco > Contato
-        Formulário de Contato
-        por Gustavo Guanabara
-        Atualizado em 01/Maio/2013
+        <section id="corpo-full">
+            <article id="noticia-principal">
+                <header id="cabecalho-artigo">
+                    <hgroup>
+                        <h3>Fale Conosco > Contato</h3>
+                        <h1>Formulário de Contato</h1>
+                        <h2>por Gustavo Guanabara</h2>
+                        <h3 class="direita">Atualizado em 01/Maio/2013</h3>
+                    </hgroup>
+                </header>
+            </article>
+        </section>
 
-        Identificação do Usuário
-            Nome:
-            Senha:
-            E-mail:
-            Sexo:
-                - Masculino
-                - Feminino
-            Data de Nascimento:
+        <form method="POST" id="fContato" action="mailto:contato@exemplo.com">
+            <fieldset id="usuario">
+                <legend>Identificação do Usuário</legend>
+                    <p>
+                        <label for="lblNome">Nome:</label>
+                        <input type="text" name="nome" id="lblNome" size="20" maxlength="30" placeholder="Nome Completo"/>
+                    </p>
+                    <p>
+                        <label for="lblSenha">Senha:</label>
+                        <input type="password" name="senha" id="lblSenha" size="8" maxlength="8" placeholder="8 digitos">
+                    </p>
+                    <p>
+                        <label for="lblMail">E-mail:</label>
+                        <input type="email" name="email" id="lblMail" maxlength="40" size="20" placeholder="Digite seu e-mail">
+                    </p>
 
-        Endereço do Usuário
-            Logradouro:
-            Número:
-            Estado:
-            Cidade:
+                    <fieldset id="sexo">
+                        <legend>Sexo:</legend>
+                            <input type="radio" name="sexo" id="radMasc"><label for="radMasc">Masculino </label>
+                            <br>
+                            <input type="radio" name="sexo" id="radFem"><label for="radFem">Feminino</label>
+                            <!-- no mesmo grupo de radio, todos devem ter o mesmo name, para que seja feito a seleção de apenas uma opção -->
+                            <!-- Caso contrario poderá selecionar todas as opções com nomes diferentes e por ser radio, não conseguirá desmarcar -->
+                            <!-- Label vai fazer com que o texto também sirva para marcar a bolinha(radio) por isso se faz necessário utilizar para qual id ele label esta funcionando (for="rad...") -->
+                    </fieldset>
 
-        Mensagem do Usuário
-            Grau de Urgência:
-            Mensagem:
+                    <p>
+                        <label for="lblData">Data de Nascimento:</label>
+                        <input id="lblData" name="data" type="date">
+                    </p>
+            </fieldset>
 
-        Quero um Google Glass
-            Gostaria de adquirir um Google Glass quando disponível
-            Cor:
-            Quantidade:
-            Preço Total: R$
+            <fieldset id="endereco">
+                <legend>Endereço do Usuário</legend>
+                    <p>
+                        <label for="lblLogradouro">Logradouro:</label>
+                        <input id="lblLogradouro" name="logradouro" type="text" size="16" maxlength="80" placeholder="Rua, Avenida, Travessa">
+                    </p>
+                    <p>
+                        <label for="lblNumero">Número:</label>
+                        <input id="lblNumero" name="numero" type="number" min="0" max="999999">
+                    </p>
+                    <p>
+                        <label for="lblEstado">Estado:</label>
+                        <select id="lblEstado" name="estado">
+                            <optgroup label="Região Sudeste">
+                                <option value="RJ">Rio de Janeiro</option>
+                                <option value="SP" selected>São Paulo</option>
+                                <option value="MG">Minas Gerais</option>
+                            </optgroup>
+
+                            <optgroup label="Região Sul">
+                                <option value="PR">Paraná</option>
+                                <option value="SC">Santa Catarina</option>
+                                <option value="RS">Rio Grande do Sul</option>
+                                <option>Outro</option>
+                            </optgroup>
+                            <!-- Caso não seja especificado o value da opção, o que será enviado sera o texto completo-->
+                        </select>
+                    </p>
+                    <p>
+                        <label for="lblCidade">Cidade:</label>
+                        <input id="lblCidade" name="cidade" type="text" size="20" maxlength="40" placeholder="Sua Cidade" list="optcidades">
+                        <datalist id="optcidades">
+                            <option value="Rio de Janeiro"></option>
+                            <option value="Nova Iguaçu"></option>
+                            <option value="Niterói"></option>
+                            <option value="Belford Roxo"></option>
+                        </datalist>
+                    </p>
+            </fieldset>
+
+            <fieldset id="mensagem">
+                <legend>Mensagem do Usuário</legend>
+                    <p>
+                        <label for="lblUrgencia">Grau de Urgência:</label>
+                        Mín<input id="lblUrgencia" name="grauUrgencia" type="range" min="0" max="10" step="2">Máx
+                    </p>
+                    <p>
+                        <label for="lblMensagem">Mensagem:</label>
+                        <textarea name="mensagem" id="lblMensagem" cols="45" rows="5" placeholder="Deixe aqui sua mensagem"></textarea>
+                    </p>
+            </fieldset>
+
+            <fieldset id="pedido">
+                <legend>Quero um Google Glass</legend>
+                    Gostaria de adquirir um Google Glass quando disponível
+                    Cor:
+                    Quantidade:
+                    Preço Total: R$
+            </fieldset>
 
 
-        [BOTÃO ENVIAR]
-
+            [BOTÃO ENVIAR]
+        </form>
         <footer id="rodape">
             <p>Copyright&copy; 2013 - by Gustavo Guanabara <br/>
             Facebook | Twitter</p>
