@@ -8,6 +8,13 @@
 </head>
 
 <script language="javascript" src="_javascript/funcoes.js"></script>
+<script>
+    function calc_total() {
+        var qtd = parseInt(document.getElementById('lblQtd').value);
+        tot = qtd * 1500;
+        document.getElementById('lblPreco').value = tot;
+    }
+</script>
 
 <body>
     <div id="interface">
@@ -48,7 +55,7 @@
             </article>
         </section>
 
-        <form method="POST" id="fContato" action="mailto:contato@exemplo.com">
+        <form method="POST" id="fContato" action="mailto:contato@exemplo.com" oninput="calc_total();">
             <fieldset id="usuario">
                 <legend>Identificação do Usuário</legend>
                     <p>
@@ -134,14 +141,28 @@
 
             <fieldset id="pedido">
                 <legend>Quero um Google Glass</legend>
-                    Gostaria de adquirir um Google Glass quando disponível
-                    Cor:
-                    Quantidade:
-                    Preço Total: R$
+                    <p>
+                        <input id="lblAdquirir" name="adquirir" type="checkbox" checked>
+                        <label for="lblAdquirir">Gostaria de adquirir um Google Glass quando disponível</label>
+                    </p>
+                    <p>
+                        <label for="">Cor:</label>
+                        <input id="lblCor" name="cor" type="color" value="#0000ff">
+                    </p>
+                    <p>
+                        <label for="lblQtd">Quantidade:</label>
+                        <input id="lblQtd" name="quantidade" type="number" min="0" max="5" value="0">
+                    </p>
+                    <p>
+                        <label for="lblPreco">Preço Total: R$</label>
+                        <input id="lblPreco" name="totPreco" type="text" placeholder="Total a pagar" readonly>
+                        <!-- readonly faz com que o text Box não possa ser escrito, somente visualizado -->
+                    </p>
             </fieldset>
 
 
-            [BOTÃO ENVIAR]
+            <!-- <input type="submit" value="Enviar"> também serve, porém o estudo é escolhido pelo navegador --> 
+            <input type="image" name="btnEnviar" src="_imagens/botao-enviar.png">
         </form>
         <footer id="rodape">
             <p>Copyright&copy; 2013 - by Gustavo Guanabara <br/>
